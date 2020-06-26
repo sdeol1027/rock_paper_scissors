@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RPS</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            const randomNum = Math.floor(Math.random() * 10) %  3;
+            
+            if (randomNum === 0) {
+                return 'rock';
+            } else if (randomNum === 1) {
+                return 'paper';
+            } else {
+                return 'scissors';
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            
+            if (playerSelection === 'rock' && computerSelection === 'scissors' ||
+                playerSelection === 'paper' && computerSelection === 'rock' ||
+                playerSelection === 'scissors' && computerSelection === 'paper') {
+                    return `You Win! ${ playerSelection } beats ${ computerSelection}`;
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock' ||
+                    playerSelection === 'rock' && computerSelection === 'paper' ||
+                    playerSelection === 'paper' && computerSelection === 'scissors') {
+                        return `You Lose! ${ computerSelection } beats ${ playerSelection}`;
+            } else {
+                return `Draw! ${ playerSelection } same as ${ computerSelection}`;
+            }
+        }
+        
+        function game() {
+            let win = 0;
+            let loss = 0;
+            let tie = 0;
+
+            let play1 = prompt('What is your selection for game 1?');
+            
+            let result1 = playRound(play1.toLowerCase(), computerPlay());
+            
+            console.log(result1);
+            
+            if (result1.search('Win') != -1) {
+                win++;
+            } else if (result1.search('Lose') != -1) {
+                loss++; 
+            } else {
+                tie++;
+            }
+            
+            let play2 = prompt('What is your selection for game 2?');
+            
+            let result2 = playRound(play2.toLowerCase(), computerPlay());
+            
+            console.log(result2);
+            
+            if (result2.search('Win') != -1) {
+                win++;
+            } else if (result2.search('Lose') != -1) {
+                loss++; 
+            } else {
+                tie++;
+            }
+
+            let play3 = prompt('What is your selection for game 3?');
+            
+            let result3 = playRound(play3.toLowerCase(), computerPlay());
+            
+            console.log(result3);
+            
+            if (result3.search('Win') != -1) {
+                win++;
+            } else if (result3.search('Lose') != -1) {
+                loss++; 
+            } else {
+                tie++;
+            }
+
+            let play4 = prompt('What is your selection for game 4?');
+            
+            let result4 = playRound(play4.toLowerCase(), computerPlay());
+            
+            console.log(result4);
+            
+            if (result4.search('Win') != -1) {
+                win++;
+            } else if (result4.search('Lose') != -1) {
+                loss++; 
+            } else {
+                tie++;
+            }
+            
+            let play5 = prompt('What is your selection for game 5?');
+            
+            let result5 = playRound(play5.toLowerCase(), computerPlay());
+            
+            console.log(result5);
+            
+            if (result5.search('Win') != -1) {
+                win++;
+            } else if (result5.search('Lose') != -1) {
+                loss++; 
+            } else {
+                tie++;
+            }
+
+            console.log(`Win = ${ win }, Loss = ${ loss }, Tie = ${ tie }`);
+
+            if (win > loss) {
+                return "You Won!";
+            } else if (loss > win) {
+                return "You Lost!";
+            } else {
+                return "You Tied!";
+            }
+        }
+    </script>
+</body>
+</html>
